@@ -17,7 +17,7 @@ public class Project_1st_part {
     int second;
 
     public static void main(String[] args) {
-        /*      INSTANTIATE    */
+        /*      STATEMENT    */
         Project_1st_part eject = new Project_1st_part();
 
         //Create a list with the points 
@@ -27,6 +27,12 @@ public class Project_1st_part {
         ArrayList<Point> points = listPoints.getPoints();
 
         eject.bruteForceAlgorithm(points);
+
+        Collections.sort(points, new comparePoints());
+
+        for (Point point : points) {
+            System.out.println("(" + point.x_coordinate + ")(" + point.y_coordinate + ")");
+        }
         /*
         System.out.println("The minimum distance between points is: " + minimum_distance + " \nthe first point is: " + first + " \nthe first point is: " + second);
          */

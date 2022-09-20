@@ -13,11 +13,11 @@ import java.util.*;
 public class ListPoints {
 
     Point point1 = new Point(1, 1);
-    Point point2 = new Point(4, 1);
-    Point point3 = new Point(6, 2);
-    Point point4 = new Point(1, 3);
-    Point point5 = new Point(5, 4);
-    Point point6 = new Point(4, 2);
+    Point point2 = new Point(7, 4);
+    Point point3 = new Point(4, 2);
+    Point point4 = new Point(1, 6);
+    Point point5 = new Point(3, 4);
+    Point point6 = new Point(4, 5);
 
     ArrayList<Point> points = new ArrayList<>();
 
@@ -36,5 +36,5 @@ public class ListPoints {
     public ArrayList<Point> getPoints() {
         return points;
     }
-    
+
 }
