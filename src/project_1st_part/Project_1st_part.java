@@ -26,20 +26,14 @@ public class Project_1st_part {
         listPoints.addPoints();
         ArrayList<Point> points = listPoints.getPoints();
 
-        eject.bruteForceAlgorithm(points);
-
+        //Oderna la lista en cuanto a la coordenada X
         Collections.sort(points, new comparePoints());
 
-        for (Point point : points) {
-            System.out.println("(" + point.x_coordinate + ")(" + point.y_coordinate + ")");
-        }
-        /*
-        System.out.println("The minimum distance between points is: " + minimum_distance + " \nthe first point is: " + first + " \nthe first point is: " + second);
-         */
+        eject.splitTheArray(points);
     }
 
     /*                      Funtions             */
-    public void bruteForceAlgorithm(ArrayList<Point> points) {
+    public void bruteForceAlgorithm(List<Point> points, int tipe) {
         double d_min = 9999999;
 
         for (Point point : points) {
@@ -54,7 +48,22 @@ public class Project_1st_part {
                 }
             }
         }
-        System.out.println("The minimum distance between points is: " + d_min + " \nthe first point is: " + first + " \nand the second point is: " + second);
+        switch (tipe) {
+            case 1:
+                System.out.println("\nPrimer corte ");
+                System.out.println("The minimum distance between points is: " + d_min + " \nthe first point is: " + first + " \nand the second point is: " + second);
+                break;
+            case 2:
+                System.out.println("\nSegundo corte ");
+                System.out.println("The minimum distance between points is: " + d_min + " \nthe first point is: " + first + " \nand the second point is: " + second);
+                break;
+            case 3:
+                System.out.println("\nTercer corte ");
+                System.out.println("The minimum distance between points is: " + d_min + " \nthe first point is: " + first + " \nand the second point is: " + second);
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
 
     public double distance(Point point1, Point point2) {
@@ -72,6 +81,21 @@ public class Project_1st_part {
         double d = Math.floor(Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)));
 
         return d;
+    }
+
+    public void splitTheArray(ArrayList<Point> points) {
+        /*      Crea las sublistas para poder analizar los puntos por cuadrantes        */
+        List<Point> firstPartToArray = points.subList(0, points.size() / 2);
+
+        List<Point> secondPartToArray = points.subList(points.size() / 2, points.size());
+
+        List<Point> thirdPartToArray = points.subList(points.size() / 3, points.size() * 3 / 4);
+
+        bruteForceAlgorithm(firstPartToArray, 1);
+
+        bruteForceAlgorithm(secondPartToArray, 2);
+
+        bruteForceAlgorithm(thirdPartToArray, 3);
     }
 
 }
