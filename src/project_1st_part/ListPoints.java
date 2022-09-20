@@ -17,7 +17,7 @@ public class ListPoints {
     Point point3 = new Point(6, 2);
     Point point4 = new Point(1, 3);
     Point point5 = new Point(5, 4);
-    Point point6 = new Point(2, 2);
+    Point point6 = new Point(4, 2);
 
     ArrayList<Point> points = new ArrayList<>();
 
