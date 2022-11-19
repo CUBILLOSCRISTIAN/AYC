@@ -12,23 +12,7 @@ import java.util.*;
  */
 public class ListPoints {
 
-    Point point1 = new Point(1, 1);
-    Point point2 = new Point(7, 4);
-    Point point3 = new Point(4, 2);
-    Point point4 = new Point(1, 6);
-    Point point5 = new Point(3, 4);
-    Point point6 = new Point(4, 5);
-
     ArrayList<Point> points = new ArrayList<>();
-
-    public void addPoints() {
-        points.add(point1);
-        points.add(point2);
-        points.add(point3);
-        points.add(point4);
-        points.add(point5);
-        points.add(point6);
-    }
 
     public ListPoints() {
     }
@@ -37,4 +21,29 @@ public class ListPoints {
         return points;
     }
 
+    // Crea las coordenadas y crea un punto
+    // ademas verifica que esta punto no exista
+    // en la lista de puntos.
+    public void randomCoordinates(int numbersCoords) {
+        if (numbersCoords != 0) {
+            boolean verif = true;
+            int x_coordenate = (int) (Math.random() * 15);
+            int y_coordenate = (int) (Math.random() * 15);
+
+            Point point = new Point(x_coordenate, y_coordenate);
+
+            for (int i = 0; i < points.size(); i++) {
+                if (points.get(i).getX_coordinate() == point.getX_coordinate()
+                        && points.get(i).getY_coordinate() == point.getY_coordinate()) {
+                    verif = false;
+                }
+            }
+            if (verif) {
+                points.add(point);
+                randomCoordinates(numbersCoords - 1);
+            } else {
+                randomCoordinates(numbersCoords);
+            }
+        }
+    }
 }

@@ -14,10 +14,10 @@ public class comparePoints implements Comparator<Point> {
 
     @Override
     public int compare(Point p1, Point p2) {
-        if (p1.x_coordinate > p2.x_coordinate) {
+        if (p1.getX_coordinate() > p2.getX_coordinate()) {
             return 1;
-        } else if (p1.x_coordinate == p2.x_coordinate) {
-            if (p1.y_coordinate > p2.y_coordinate) {
+        } else if (p1.getX_coordinate() == p2.getX_coordinate()) {
+            if (p1.getY_coordinate() > p2.getY_coordinate()) {
                 return 0;
             } else {
                 return 1;
