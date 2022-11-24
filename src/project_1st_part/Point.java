@@ -13,7 +13,6 @@ import java.util.*;
 public class Point {
 
     static int count = 0;
-
     private int x_coordinate;
     private int y_coordinate;
 
@@ -81,15 +80,12 @@ public class Point {
         //Divide la lista en dos considerando el punto medio
         //Sea Izq la distancia del lado izquierdo
         //y Der la distancia del lado derecho
-        double dl = closestPair(points, startIndex, mid);
-        double dr = closestPair(points, mid, endIndex);
+        double Izq = closestPair(points, startIndex, mid);
+        double Der = closestPair(points, mid, endIndex);
 
         //Se encuentra la distancia mas pequeña entre los dos lados
-        double d = Math.min(dl, dr);
+        double d = Math.min(Izq, Der);
 
-        // Build an array midList[] that contains
-        // points close (closer than d)
-        // to the line passing through the middle point
         //Lista point guardaran los puntos mas cercados
         //a la linea del medio
         List<Point> midList = new ArrayList<>();
@@ -99,7 +95,7 @@ public class Point {
                 midList.add(point);
             }
         }
-
+        count = 0;
         //Encuentra el minimo entre El punto mas cercano de midList y d
         return Math.min(d, stripClosest(midList, midList.size(), d));
     }
